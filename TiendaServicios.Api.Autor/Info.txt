@@ -1,0 +1,15 @@
+﻿Este proyecto es microservicios en una base de datos PostgreSQL, donde se generaron los modelos desde clases y posteriormente se migró a la Postgre por medio de EntityFrameworkCore.
+
+Este proyecto está diseñado de la siguiente manera:
+	-Utiliza el Patron de diseño CQRS (Comando Consulta Responsabilidad y Segregación)
+		-Este patrón indica que se deben separar las operaciones de escritura de las operaciones de lectura
+		-Esto se hace porque es mas frecuente las consultas que la administración de datas.
+		-Esto se generar para mejorar el tiempo de respuesta de los datos.
+		-Se debe instalar una librería llamada MediatR: permite conectar la capa de persistencia con los controladores.
+		-Se debe instalar una librería llamada FluentValidation.AspNetCore: permite hacer validaciones de los campos obligatorios del modelo.
+		-Se debe instalar una librería AutoMapper.Extensions.Microsoft.DependencyInjection: esto permite creear clase DTO, esto es que los datos de una clase vayan algunos campos (NO TODOS).
+	-Estructura del proyecto:
+		-Capa Modelo: aquí se generan las clases de tipo entidad (tablas).
+		-Capa Persistencia: aquí se genera una Instancia del modelo de la base de datos (Context).
+		-Capa Aplicacion: aquí se crean las reglas de negocio del proyecto
+		-Capa Controller-API: aquí se generan los EndPoins de conectividad al exterior.
