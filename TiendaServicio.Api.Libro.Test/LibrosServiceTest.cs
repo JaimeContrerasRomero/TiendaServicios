@@ -19,6 +19,7 @@ namespace TiendaServicio.Api.Libro.Test
         //esta función se usa para emular datos de la BD
         private IEnumerable<LibreriaMaterial> ObtenerDataPrueba()
         {
+            //Este método es para llenar con data de Genfu
             A.Configure<LibreriaMaterial>()
                 .Fill(x => x.Titulo).AsArticleTitle()
                 .Fill(x => x.LibreriaMaterialId, () => { return Guid.NewGuid(); });
